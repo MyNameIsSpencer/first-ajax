@@ -1,5 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  /* Your code goes here */
+  // var button = document.getElementById( '')
+
+
+
+
+  $.ajax({
+    url: 'http://first-ajax-api.herokuapp.com/',
+    method: 'GET',
+    data: ,
+    dataType: 'text'
+  });
+
 
 });
