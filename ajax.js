@@ -18,8 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
       dataType: 'text'
     }).done(function (responseData) {
       console.log(responseData);
-      var pingAddOn = responseData
+      var pingAddOn = responseData;
       step3456.append(pingAddOn);
+    }).fail(function () {
+      console.log('Has anyone ever told you how incredibly patient you are? It is so nice to come across someone as considerate as you. Oh man, oh geez! It looks like something went wrong! You don`t mind waiting while we fix it do you?');
+      var fail_message = 'Has anyone ever told you how incredibly patient you are? It is so nice to come across someone as considerate as you. Oh man, oh geez! It looks like something went wrong! You don`t mind waiting while we fix it do you?';
+      step3456.append(fail_message);
+    }).always(function () {
+      console.log('All I know is, it`s done');
     });
   });
 
