@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var button1 = document.getElementById('button1'),
       button3 = document.getElementById('button3'),
       button7 = document.getElementById('button7'),
-      button8 = document.getElementById('button8');
+      button8 = document.getElementById('button8'),
+      button9 = document.getElementById('button9');
 
   button1.addEventListener( 'click', function() {
     $.ajax({
@@ -68,11 +69,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  button9.addEventListener( 'click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      // data: {timezone: 'Asia/Taipei'},
+      dataType: 'html'
+    }).done(function (responseData) {
+      console.log(responseData);
+      var carUl = document.createElement('list');
+      carUl.innerHTML = responseData;
+      var step9 = document.getElementById('step9');
+      step9.append(carUl);
 
-
-
-
-
+    }).fail(function () {
+      console.log('Has anyone ever told you how incredibly patient you are? It is so nice to come across someone as considerate as you. Oh man, oh geez! It looks like something went wrong! You don`t mind waiting while we fix it do you?');
+      var fail_message = 'Has anyone ever told you how incredibly patient you are? It is so nice to come across someone as considerate as you. Oh man, oh geez! It looks like something went wrong! You don`t mind waiting while we fix it do you?';
+      step9.append(fail_message);
+    }).always(function () {
+      console.log('One way or the other, it`s done');
+    });
+  });
 
 
 });
