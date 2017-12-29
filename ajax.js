@@ -1,18 +1,27 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  var request_to_root = document.getElementById( 'request_to_root')
+  var button1 = document.getElementById( 'button1'),
+      button3 = document.getElementById( 'button3' );
 
-  request_to_root.addEventListener( 'click', function() {
-
+  button1.addEventListener( 'click', function() {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/',
       method: 'GET',
       dataType: 'text'
     });
-
-
   });
 
+  button3.addEventListener( 'click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/ping',
+      method: 'GET',
+      dataType: 'text'
+    }).done(function (responseData) {
+      console.log(responseData);
+      var pingAddOn = responseData
+      step3456.append(pingAddOn);
+    });
+  });
 
 
 
